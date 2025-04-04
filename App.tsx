@@ -9,6 +9,12 @@ import { theme } from './src/components/constants/colors';
 import { DayScreen } from './src/components/screens/day';
 import { HomeScreen } from './src/components/screens/home';
 
+//TODO:
+// - Drawer UI 완성
+// - react navigation theme 추가
+// - task ui
+// - task 추가 ui
+
 type DrawerParamList = {
     Home: undefined;
     Day: undefined;
