@@ -1,16 +1,20 @@
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { colors, theme } from '../constants/colors';
 
 export const Header = () => {
-    const handleLogin = () => {
-        console.log('login');
+    const navigation = useNavigation();
+
+    const toggleDrawer = () => {
+        navigation.dispatch(DrawerActions.toggleDrawer());
     };
+
     return (
         <Appbar.Header style={styles.header} mode="center-aligned">
             <Appbar.Action
                 icon="menu"
-                onPress={handleLogin}
+                onPress={toggleDrawer}
                 iconColor={colors.gray[400]}
                 size={20}
             />
@@ -20,13 +24,11 @@ export const Header = () => {
             />
             <Appbar.Action
                 icon="calendar"
-                onPress={handleLogin}
                 iconColor={colors.gray[400]}
                 size={20}
             />
             <Appbar.Action
                 icon="login"
-                onPress={handleLogin}
                 iconColor={colors.gray[400]}
                 size={20}
             />
@@ -36,13 +38,13 @@ export const Header = () => {
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: theme.background,
+        backgroundColor: theme.colors.background,
         borderBottomWidth: 1,
-        borderBottomColor: theme.border,
+        borderBottomColor: theme.colors.border,
         display: 'flex',
         justifyContent: 'space-between',
     },
     loginButton: {
-        color: theme.text,
+        color: theme.colors.text,
     },
 });

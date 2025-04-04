@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 export const colors = {
     primary: {
         50: '#EBF5FF',
@@ -134,35 +136,36 @@ export const colors = {
     transparent: 'transparent',
 };
 
+const WEB_FONT_STACK =
+    'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+
 export const theme = {
-    // 기본 색상
-    primary: colors.primary[600],
-    primaryLight: colors.primary[300],
-    primaryDark: colors.primary[900],
+    dark: false,
+    colors: {
+        primary: colors.primary[600],
+        primaryLight: colors.primary[300],
+        primaryDark: colors.primary[900],
 
-    // 배경색
-    background: colors.gray[900],
-    backgroundLight: colors.gray[800],
-    surface: colors.gray[700],
+        // 배경색
+        background: colors.gray[900],
+        backgroundLight: colors.gray[800],
+        surface: colors.gray[700],
 
-    // 텍스트 색상
-    text: colors.white,
-    textSecondary: colors.gray[400],
-    textMuted: colors.gray[500],
+        // 텍스트 색상
+        text: colors.white,
+        textSecondary: colors.gray[400],
+        textMuted: colors.gray[500],
 
-    // 경계선 색상
-    border: colors.gray[700],
-    borderLight: colors.gray[600],
+        // 경계선 색상
+        border: colors.gray[700],
+        borderLight: colors.gray[600],
 
-    // 상태 색상
-    success: colors.green[500],
-    warning: colors.yellow[500],
-    error: colors.red[500],
-    info: colors.teal[500],
-};
-
-export const darkTheme = {
-    colors: theme,
+        // 상태 색상
+        success: colors.green[500],
+        warning: colors.yellow[500],
+        error: colors.red[500],
+        info: colors.teal[500],
+    },
     spacing: {
         xs: 4,
         sm: 8,
@@ -171,16 +174,6 @@ export const darkTheme = {
         xl: 32,
         xxl: 48,
     },
-
-    fontSizes: {
-        xs: 12,
-        sm: 14,
-        md: 16,
-        lg: 18,
-        xl: 20,
-        xxl: 24,
-    },
-
     borderRadius: {
         xs: 4,
         sm: 6,
@@ -189,12 +182,65 @@ export const darkTheme = {
         xl: 16,
         round: 9999,
     },
-
     shadows: {
         sm: '0 1px 2px rgba(0, 0, 0, 0.1)',
         md: '0 4px 6px rgba(0, 0, 0, 0.1)',
         lg: '0 10px 15px rgba(0, 0, 0, 0.1)',
     },
+    fonts: Platform.select({
+        web: {
+            regular: {
+                fontFamily: WEB_FONT_STACK,
+                fontWeight: '400',
+            },
+            medium: {
+                fontFamily: WEB_FONT_STACK,
+                fontWeight: '500',
+            },
+            bold: {
+                fontFamily: WEB_FONT_STACK,
+                fontWeight: '600',
+            },
+            heavy: {
+                fontFamily: WEB_FONT_STACK,
+                fontWeight: '700',
+            },
+        },
+        ios: {
+            regular: {
+                fontFamily: 'System',
+                fontWeight: '400',
+            },
+            medium: {
+                fontFamily: 'System',
+                fontWeight: '500',
+            },
+            bold: {
+                fontFamily: 'System',
+                fontWeight: '600',
+            },
+            heavy: {
+                fontFamily: 'System',
+                fontWeight: '700',
+            },
+        },
+        default: {
+            regular: {
+                fontFamily: 'sans-serif',
+                fontWeight: 'normal',
+            },
+            medium: {
+                fontFamily: 'sans-serif-medium',
+                fontWeight: 'normal',
+            },
+            bold: {
+                fontFamily: 'sans-serif',
+                fontWeight: '600',
+            },
+            heavy: {
+                fontFamily: 'sans-serif',
+                fontWeight: '700',
+            },
+        },
+    }),
 };
-
-export const defaultTheme = darkTheme;
