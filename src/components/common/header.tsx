@@ -1,5 +1,5 @@
 import { DrawerActions, useNavigation } from '@react-navigation/native';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { colors, theme } from '../constants/colors';
 
@@ -18,20 +18,18 @@ export const Header = () => {
                 iconColor={colors.gray[400]}
                 size={20}
             />
-            <Appbar.Content
-                title="Home"
-                titleStyle={{ color: colors.gray[400] }}
-            />
-            <Appbar.Action
-                icon="calendar"
-                iconColor={colors.gray[400]}
-                size={20}
-            />
-            <Appbar.Action
-                icon="login"
-                iconColor={colors.gray[400]}
-                size={20}
-            />
+            <View style={styles.rightView}>
+                <Appbar.Action
+                    icon="calendar"
+                    iconColor={colors.gray[400]}
+                    size={20}
+                />
+                <Appbar.Action
+                    icon="login"
+                    iconColor={colors.gray[400]}
+                    size={20}
+                />
+            </View>
         </Appbar.Header>
     );
 };
@@ -46,5 +44,9 @@ const styles = StyleSheet.create({
     },
     loginButton: {
         color: theme.colors.text,
+    },
+    rightView: {
+        display: 'flex',
+        flexDirection: 'row',
     },
 });
