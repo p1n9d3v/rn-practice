@@ -3,7 +3,8 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { SidebarDrawer } from './src/components/common/sidebar';
+import { SidebarDrawer } from './src/layout/sidebar';
+import { ReactNavigationTheme } from './src/constants/theme';
 
 //TODO:
 // - Drawer UI 완성
@@ -14,7 +15,7 @@ import { SidebarDrawer } from './src/components/common/sidebar';
 export default function App() {
     return (
         <SafeAreaProvider>
-            <NavigationContainer>
+            <NavigationContainer theme={ReactNavigationTheme}>
                 <SidebarDrawer />
             </NavigationContainer>
         </SafeAreaProvider>

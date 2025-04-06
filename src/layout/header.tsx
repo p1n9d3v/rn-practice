@@ -1,7 +1,7 @@
 import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { StyleSheet, View } from 'react-native';
 import { Appbar } from 'react-native-paper';
-import { colors, theme } from '../constants/colors';
+import { colors, theme } from '../constants/theme';
 
 export const Header = () => {
     const navigation = useNavigation();

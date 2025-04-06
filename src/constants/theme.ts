@@ -187,59 +187,71 @@ export const theme = {
         md: '0 4px 6px rgba(0, 0, 0, 0.1)',
         lg: '0 10px 15px rgba(0, 0, 0, 0.1)',
     },
+};
+
+export const ReactNavigationTheme = {
+    dark: false,
+    colors: {
+        primary: theme.colors.primary,
+        background: theme.colors.background,
+        card: theme.colors.surface,
+        text: theme.colors.text,
+        border: theme.colors.border,
+        notification: theme.colors.warning,
+    },
     fonts: Platform.select({
-        web: {
-            regular: {
-                fontFamily: WEB_FONT_STACK,
-                fontWeight: '400',
-            },
-            medium: {
-                fontFamily: WEB_FONT_STACK,
-                fontWeight: '500',
-            },
-            bold: {
-                fontFamily: WEB_FONT_STACK,
-                fontWeight: '600',
-            },
-            heavy: {
-                fontFamily: WEB_FONT_STACK,
-                fontWeight: '700',
-            },
-        },
-        ios: {
-            regular: {
-                fontFamily: 'System',
-                fontWeight: '400',
-            },
-            medium: {
-                fontFamily: 'System',
-                fontWeight: '500',
-            },
-            bold: {
-                fontFamily: 'System',
-                fontWeight: '600',
-            },
-            heavy: {
-                fontFamily: 'System',
-                fontWeight: '700',
-            },
-        },
+        // web: {
+        //     regular: {
+        //         fontFamily: WEB_FONT_STACK,
+        //         fontWeight: '400' as const,
+        //     },
+        //     medium: {
+        //         fontFamily: WEB_FONT_STACK,
+        //         fontWeight: '500',
+        //     },
+        //     bold: {
+        //         fontFamily: WEB_FONT_STACK,
+        //         fontWeight: '600',
+        //     },
+        //     heavy: {
+        //         fontFamily: WEB_FONT_STACK,
+        //         fontWeight: '700',
+        //     },
+        // },
+        // ios: {
+        //     regular: {
+        //         fontFamily: 'System',
+        //         fontWeight: '400',
+        //     },
+        //     medium: {
+        //         fontFamily: 'System',
+        //         fontWeight: '500',
+        //     },
+        //     bold: {
+        //         fontFamily: 'System',
+        //         fontWeight: '600',
+        //     },
+        //     heavy: {
+        //         fontFamily: 'System',
+        //         fontWeight: '700',
+        //     },
+        // },
         default: {
             regular: {
                 fontFamily: 'sans-serif',
-                fontWeight: 'normal',
+                fontWeight: 'normal' as const,
             },
             medium: {
                 fontFamily: 'sans-serif-medium',
-                fontWeight: 'normal',
+                fontWeight: 'normal' as const,
             },
             bold: {
                 fontFamily: 'sans-serif',
-                fontWeight: '600',
+                fontWeight: '600' as const,
             },
             heavy: {
                 fontFamily: 'sans-serif',
-                fontWeight: '700',
+                fontWeight: '700' as const,
             },
         },
     }),

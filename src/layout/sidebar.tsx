@@ -5,9 +5,9 @@ import {
     DrawerItem,
 } from '@react-navigation/drawer';
 import { StyleSheet } from 'react-native';
-import { theme } from '../constants/colors';
 import { HomeScreen } from '../screens/home';
 import { DayScreen } from '../screens/day';
+import { theme } from '../constants/theme';
 
 const PATHS = ['Home', 'Day', 'Up Coming', 'Tasks'];
 type DrawerParamList = {

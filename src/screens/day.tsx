@@ -1,12 +1,12 @@
 import { SafeAreaView, StyleSheet, Text } from 'react-native';
-import { Header } from '../common/header';
-import { theme } from '../constants/colors';
+import { Header } from '../layout/header';
+import { theme } from '../constants/theme';
 
-export const HomeScreen = () => {
+export const DayScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <Header />
-            <Text>Home Screen</Text>
+            <Text style={{ color: 'white' }}>Day Screen</Text>
         </SafeAreaView>
     );
 };
