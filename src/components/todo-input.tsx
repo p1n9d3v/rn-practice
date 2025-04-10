@@ -4,16 +4,16 @@ import { Button } from 'react-native-paper';
 import { useState } from 'react';
 
 interface TodoInputProps {
-    addTodo: (text: string) => void;
+    onAddTodo: (text: string) => void;
 }
 
 export const TodoInput = (props: TodoInputProps) => {
-    const { addTodo } = props;
+    const { onAddTodo } = props;
     const [text, setText] = useState('');
 
     const addTodoHandler = () => {
         if (text.length === 0) return;
-        addTodo(text);
+        onAddTodo(text);
         setText('');
     };
 

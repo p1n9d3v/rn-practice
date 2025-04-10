@@ -1,44 +1,57 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { theme } from '../constants/theme';
-import { Checkbox } from 'react-native-paper';
-import { useState } from 'react';
 import { Entypo } from 'expo-vector-icons';
+import { useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Checkbox } from 'react-native-paper';
+import { theme } from '../constants/theme';
 
 interface TodoProps {
     text: string;
+    onDeleteItem: () => void;
 }
 
 export const TodoItem = (props: TodoProps) => {
-    const { text } = props;
+    const { text, onDeleteItem } = props;
 
     const [checked, setChecked] = useState(false);
 
     return (
-        <View style={styles.container}>
-            <Checkbox
-                status={checked ? 'checked' : 'unchecked'}
-                onPress={() => {
-                    setChecked(!checked);
-                }}
-                color={theme.colors.primary}
-            />
-            <Text
-                style={[
-                    styles.text,
-                    {
-                        textDecorationLine: checked ? 'line-through' : 'none',
-                    },
-                ]}
-                numberOfLines={2}
-            >
-                {text}
-            </Text>
-            <Entypo
-                name="dots-three-vertical"
-                size={12}
-                color={theme.colors.text}
-            />
-        </View>
+        <Pressable
+            android_ripple={{
+                color: theme.colors.primary,
+            }}
+            onPress={onDeleteItem}
+            style={{
+                padding: 1,
+            }}
+        >
+            <View style={styles.container}>
+                <Checkbox
+                    status={checked ? 'checked' : 'unchecked'}
+                    onPress={() => {
+                        setChecked(!checked);
+                    }}
+                    color={theme.colors.primary}
+                />
+                <Text
+                    style={[
+                        styles.text,
+                        {
+                            textDecorationLine: checked
+                                ? 'line-through'
+                                : 'none',
+                        },
+                    ]}
+                    numberOfLines={2}
+                >
+                    {text}
+                </Text>
+                <Entypo
+                    name="dots-three-vertical"
+                    size={12}
+                    color={theme.colors.text}
+                />
+            </View>
+        </Pressable>
     );
 };
 

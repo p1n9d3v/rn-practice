@@ -13,20 +13,29 @@ interface Todo {
 export const HomeScreen = () => {
     const [todos, setTodos] = useState<Todo[]>([]);
 
-    const addTodo = (text: string) => {
+    const addTodoHandler = (text: string) => {
         setTodos([...todos, { id: Date.now().toString(), text }]);
     };
+
+    const deleteTodoHandler = (id: string) => {
+        setTodos(todos.filter((todo) => todo.id !== id));
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <Header />
             <View style={styles.body}>
-                <TodoInput addTodo={addTodo} />
+                <TodoInput onAddTodo={addTodoHandler} />
                 <ScrollView
                     contentContainerStyle={styles.listSection}
                     alwaysBounceVertical={false}
                 >
                     {todos.map((todo) => (
-                        <TodoItem key={todo.id} text={todo.text} />
+                        <TodoItem
+                            key={todo.id}
+                            text={todo.text}
+                            onDeleteItem={() => deleteTodoHandler(todo.id)}
+                        />
                     ))}
                 </ScrollView>
             </View>
