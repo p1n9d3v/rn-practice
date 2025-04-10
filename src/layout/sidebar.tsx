@@ -19,7 +19,6 @@ const Drawer = createDrawerNavigator<DrawerParamList>();
 
 const DrawerContent = (props: DrawerContentComponentProps) => {
     const { state, navigation } = props;
-    console.log(state);
     return (
         <DrawerContentScrollView style={styles.container}>
             {PATHS.map((path, index) => (
