@@ -4,6 +4,7 @@ import { TodoInput } from '../components/todo-input';
 import { TodoItem } from '../components/todo-item';
 import { theme } from '../constants/theme';
 import { Header } from '../layout/header';
+import { Button } from 'react-native-paper';
 
 interface Todo {
     id: string;
@@ -12,6 +13,7 @@ interface Todo {
 
 export const HomeScreen = () => {
     const [todos, setTodos] = useState<Todo[]>([]);
+    const [visibleModal, setVisibleModal] = useState(false);
 
     const addTodoHandler = (text: string) => {
         setTodos([...todos, { id: Date.now().toString(), text }]);
@@ -21,11 +23,28 @@ export const HomeScreen = () => {
         setTodos(todos.filter((todo) => todo.id !== id));
     };
 
+    const openModalHandler = () => {
+        setVisibleModal(true);
+    };
+
+    const closeModalHandler = () => {
+        setVisibleModal(false);
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <Header />
             <View style={styles.body}>
-                <TodoInput onAddTodo={addTodoHandler} />
+                <Button mode="contained" onPress={openModalHandler}>
+                    Add Todo
+                </Button>
+                <TodoInput
+                    onAddTodo={addTodoHandler}
+                    modalProps={{
+                        visible: visibleModal,
+                        onRequestClose: closeModalHandler,
+                    }}
+                />
                 <ScrollView
                     contentContainerStyle={styles.listSection}
                     alwaysBounceVertical={false}
