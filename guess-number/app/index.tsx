@@ -11,7 +11,10 @@ export default function Index() {
                 autoCapitalize="none"
                 autoCorrect={false}
             />
-            <Button>Click me</Button>
+            <View style={styles.actionContainer}>
+                <Button>Reset</Button>
+                <Button>Confirm</Button>
+            </View>
         </View>
     );
 }
@@ -42,5 +45,10 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         fontWeight: 'bold',
         textAlign: 'center',
+    },
+    actionContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 8,
     },
 });
