@@ -12,8 +12,12 @@ export default function Index() {
                 autoCorrect={false}
             />
             <View style={styles.actionContainer}>
-                <Button>Reset</Button>
-                <Button>Confirm</Button>
+                <View style={styles.buttonContainer}>
+                    <Button>Reset</Button>
+                </View>
+                <View style={styles.buttonContainer}>
+                    <Button>Confirm</Button>
+                </View>
             </View>
         </View>
     );
@@ -34,6 +38,8 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 6,
         shadowOpacity: 0.25,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     numberInput: {
         width: 50,
@@ -50,5 +56,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         gap: 8,
+    },
+    buttonContainer: {
+        flex: 1,
     },
 });

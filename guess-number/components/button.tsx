@@ -31,7 +31,6 @@ export default function Button(props: ButtonProps) {
 
 const styles = StyleSheet.create({
     buttonOuterContainer: {
-        flex: 1,
         borderRadius: 8,
         overflow: 'hidden',
     },
@@ -39,9 +38,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#6A2C91',
         paddingVertical: 8,
         paddingHorizontal: 16,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     buttonText: {
-        fontSize: 24,
+        fontSize: 16,
         color: 'white',
     },
     pressed: {
